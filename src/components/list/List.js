@@ -20,24 +20,35 @@ class List extends React.Component {
   }
    
   componentDidMount() {
-    this.setState({ loading: true });
+    this.fetchCurrencies();
+  }
 
-    const { page } = this.state;
+  fetchCurrencies() {
+    this.setState({
+      loading: true
+    });
+
+    const {
+      page
+    } = this.state;
 
     fetch(`${API_URL}/cryptocurrencies?page=${page}&perPage=20`)
-      .then(handleResponse) 
-      .then((data) => { 
-        const { currencies, totalPages } = data;
-        this.setState({ 
-          currencies, 
+      .then(handleResponse)
+      .then((data) => {
+        const {
+          currencies,
+          totalPages
+        } = data;
+        this.setState({
+          currencies,
           totalPages,
-          loading: false, 
+          loading: false,
         });
       })
       .catch((error) => {
-        this.setState({ 
-          error: error.errorMessage, 
-          loading: false, 
+        this.setState({
+          error: error.errorMessage,
+          loading: false,
         });
       });
   }
@@ -58,7 +69,10 @@ class List extends React.Component {
     // Increment nextPage if direction is next, if not decrement
     nextPage = direction === 'next' ? nextPage + 1 : nextPage - 1;
 
-    this.setState({ page: nextPage });
+    // call fetchCurrencies func in setState's callback to make sure first  // page is updated 
+    this.setState({ page: nextPage }, () => {
+      this.fetchCurrencies();
+    });
   }
 
   render() {
