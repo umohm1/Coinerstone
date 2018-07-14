@@ -1,6 +1,7 @@
 import React from 'react';
 import { handleResponse } from '../../helpers';
 import { API_URL } from '../../config';
+import Loading from '../common/Loading';
 import './Table.css';
 
 
@@ -45,8 +46,16 @@ class List extends React.Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return <div>Loading...</div>
+    const { loading, error, currencies} = this.state;
+
+    // render loading componenet if loading state is set to true
+    if (loading) {
+      return <div className="loading-container"><Loading /></div>
+    }
+
+    // render error message if API call failed
+    if (error) {
+      return <div className="error">{this.state.error}</div>
     }
 
     return (
@@ -62,7 +71,7 @@ class List extends React.Component {
             </tr>
           </thead>
           <tbody className="Table-body">
-          {this.state.currencies.map((currency) => (
+          {currencies.map((currency) => (
             <tr key={currency.id}>
               <td>
                 <span className="Table-rank">{currency.rank}</span>
