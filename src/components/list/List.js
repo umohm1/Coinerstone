@@ -29,8 +29,8 @@ class List extends React.Component {
       .then((data) => { 
         const { currencies, totalPages } = data;
         this.setState({ 
-          currencies: currencies, 
-          totalPages: totalPages,
+          currencies, 
+          totalPages,
           loading: false, 
         });
       })
@@ -50,6 +50,15 @@ class List extends React.Component {
     } else {
       return <span>{percent}</span>
     }
+  }
+
+  handlePaginationClick = (direction) => {
+    let nextPage = this.state.page;
+
+    // Increment nextPage if direction is next, if not decrement
+    nextPage = direction === 'next' ? nextPage + 1 : nextPage - 1;
+
+    this.setState({ page: nextPage });
   }
 
   render() {
@@ -75,6 +84,7 @@ class List extends React.Component {
       <Pagination 
         page={page}
         totalPages={totalPages}
+        handlePaginationClick={this.handlePaginationClick}
       />
       </div>
     );
