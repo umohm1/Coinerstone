@@ -1,5 +1,6 @@
 import React from 'react';
 import { handleResponse } from '../../helpers';
+import { API_URL } from '../../config';
 
 
 
@@ -17,7 +18,7 @@ class List extends React.Component {
   componentDidMount() {
     this.setState({ loading: true });
 
-    fetch('https://api.udilia.com/coins/v1/cryptocurrencies?page=1&perPage=20')
+    fetch(`${API_URL}/cryptocurrencies?page=1&perPage=20`)
       .then(handleResponse) 
       .then((data) => { 
         this.setState({ 
