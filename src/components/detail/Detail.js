@@ -1,7 +1,7 @@
 import React from 'react';
 import { API_URL } from '../../config'; 
 import Loading from '../common/Loading';
-import { handleResponse } from '../../helpers';
+import { handleResponse, renderPercentChange } from '../../helpers';
 import './Detail.css';
 
 class Detail extends React.Component {
@@ -52,7 +52,38 @@ class Detail extends React.Component {
     }
   
     return (
-      <div>Detail</div>
+      <div className="Detail">
+        <h1 className="Detail-heading">
+          {currency.name} ({currency.symbol})
+        </h1>
+        
+        <div className="Detail-container">
+          <div className="Detail-item">
+            Price <span className="Detail-value">$ {currency.price}</span>
+          </div>
+          <div className="Detail-item">
+            Rank <span className="Detail-value">{currency.rank}</span>
+          </div>
+          <div className="Detail-item">
+            Change(24h)<span className="Detail-value">{renderPercentChange(currency.percentChange24h)}</span>
+          </div>
+          <div className="Detail-item">
+            <span className="Detail-title">Market Cap</span>
+            <span className="Detail-dollar">$</span>
+            {currency.marketCap}
+          </div>
+          <div className="Detail-item">
+            <span className="Detail-title">Volume (24h) </span>
+            <span className="Detail-dollar">$</span>
+            {currency.volume24h}
+          </div>
+           <div className="Detail-item">
+            <span className="Detail-title">Total Supply</span>
+            <span className="Detail-dollar">$</span>
+            {currency.totalSupply}
+          </div>
+        </div> 
+      </div>
     );
   }
 }
