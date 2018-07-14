@@ -1,7 +1,7 @@
 import React from 'react';
 import { handleResponse } from '../../helpers';
 import { API_URL } from '../../config';
-
+import './Table.css';
 
 
 class List extends React.Component {
