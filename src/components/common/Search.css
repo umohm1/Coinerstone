@@ -15,14 +15,14 @@
 .Search-icon {
   z-index: 1;
   position: absolute;
-  top: 9px;
+  top: -5px;
   left: 28px;
-  background-image: url('./search.png');
+  background-image: url('https://www.freeiconspng.com/uploads/search-icon-png-1.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   width: 18px;
-  height: 18px;
+  height: 50px;
 }
 
 .Search-input {
