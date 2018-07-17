@@ -47,7 +47,7 @@ const Table = (props) => {
   );
 }
 
-Table.PropTypes = {
+Table.propTypes = {
   currencies: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
 };

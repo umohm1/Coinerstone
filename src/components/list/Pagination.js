@@ -30,7 +30,7 @@ const Pagination = (props) => {
   );
 }
 
-Pagination.PropTypes = {
+Pagination.propTypes = {
   totalPages: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
   handlePaginationClick: PropTypes.func.isRequired,
