@@ -8,8 +8,8 @@ const Header = () => {
     <div className="Header">
      <Link to="/">
         <img src="https://i.imgur.com/cKY6Gpa.png" alt="" className="Header-logo" />
-      </Link>
-     COINERSTONE
+     </Link>
+     <p>COINERSTONE</p>
     <Search />
     </div>
   );
