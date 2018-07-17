@@ -9,7 +9,7 @@
 }
 
 .Table-head {
-  background-color: #0f273d
+  background-color: #FCF3CF;
 }
 
 .Table-head tr th {
@@ -22,12 +22,12 @@
 
 .Table-body {
   text-align: left;
-  background-color: #0f273d;
+  background-color: #566573;
 }
 
 .Table-body tr td {
   padding: 24px 20px;
-  border-bottom: 2px solid #0c2033;
+  border-bottom: 2px solid #5D6D7E;
   color: #fff;
   cursor: pointer;
 }
