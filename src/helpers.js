@@ -13,7 +13,7 @@ export const handleResponse = (response) => {
 
 /**
  * Render percent change helper 
- * @param {string} percent 
+ * @param {number} percent 
  */
  export const renderPercentChange = (percent) => {
     if (percent > 0) {

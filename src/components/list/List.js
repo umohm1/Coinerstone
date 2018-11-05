@@ -1,6 +1,5 @@
 import React from 'react';
 import { handleResponse } from '../../helpers';
-import { API_URL } from '../../config';
 import Loading from '../common/Loading';
 import Table from './Table';
 import Pagination from './Pagination'; 
@@ -33,17 +32,18 @@ class List extends React.Component {
       page, perPage
     } = this.state;
 
-    fetch(`${API_URL}/cryptocurrencies?page=${page}&perPage=${perPage}`)
+    fetch(`${process.env.REACT_APP_API}/cryptocurrencies?page=${page}&perPage=${perPage}`)
       .then(handleResponse)
-      .then((data) => {
+      .then((res) => {
         const {
           currencies,
           totalPages
-        } = data;
+        } = res;
         this.setState({
           currencies,
           totalPages,
           loading: false,
+          error: null,
         });
       })
       .catch((error) => {

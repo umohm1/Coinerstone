@@ -1,5 +1,4 @@
 import React from 'react';
-import { API_URL } from '../../config'; 
 import Loading from '../common/Loading';
 import { handleResponse, renderPercentChange } from '../../helpers';
 import './Detail.css';
@@ -9,7 +8,7 @@ class Detail extends React.Component {
     super(); 
 
       this.state = {
-        currency: [],
+        currency: {},
         loading: false,
         error: null,
       };
@@ -36,13 +35,13 @@ class Detail extends React.Component {
       loading: true
     });
 
-    fetch(`${API_URL}/cryptocurrencies/${currencyId}`)
+    fetch(`${process.env.REACT_APP_API}/cryptocurrencies/${currencyId}`)
       .then(handleResponse)
       .then((currency) => {
         this.setState({
+          currency,
           loading: false,
           error: null,
-          currency,
         });
       })
       .catch((error) => {

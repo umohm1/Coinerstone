@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Loading from './Loading';
-import { API_URL } from '../../config';
 import { handleResponse } from '../../helpers';
 import './Search.css';
 
@@ -32,7 +31,7 @@ class Search extends React.Component {
 
     this.setState({ loading: true });
 
-    fetch(`${API_URL}/autocomplete?searchQuery=${searchQuery}`)
+    fetch(`${process.env.REACT_APP_API}/autocomplete?searchQuery=${searchQuery}`)
       .then(handleResponse)
       .then((result) => {
         this.setState({ 
