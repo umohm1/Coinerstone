@@ -13,7 +13,7 @@ const App = () => {
     <div>
       <Header /> 
 
-      <Switch>
+      <Switch> 
         <Route path="/" component={List} exact />
         <Route path="/currency/:id" component={Detail} exact />
         <Route component={NotFound} />

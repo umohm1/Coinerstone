@@ -16,6 +16,7 @@ class List extends React.Component {
       error: null,
       totalPages: 0,
       page: 1, 
+      perPage: 20,
     };
   }
    
@@ -29,10 +30,10 @@ class List extends React.Component {
     });
 
     const {
-      page
+      page, perPage
     } = this.state;
 
-    fetch(`${API_URL}/cryptocurrencies?page=${page}&perPage=20`)
+    fetch(`${API_URL}/cryptocurrencies?page=${page}&perPage=${perPage}`)
       .then(handleResponse)
       .then((data) => {
         const {
