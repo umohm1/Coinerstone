@@ -16,6 +16,12 @@ Like many, I've invested in cryptocurrency but found myself not checking in on m
 2. Run npm install
 3. Run npm start
 
+## Built With
+
+* [React](https://reactjs.org/)
+* [NodeJS](https://nodejs.org/en/)
+* [ExpressJS](https://expressjs.com/)
+
 ## Contribution
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/umohm1/Coinerstone. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
